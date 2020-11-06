@@ -5,4 +5,4 @@
 10.1.240.189
 
 [slave:vars]
-master_host_ip=10.1.240.74
+master_host_ip=10.1.240.55
