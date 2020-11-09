@@ -17,7 +17,7 @@
 - name: download mysql package
   get_url:
     url: "https://nginx-qa.fit2cloud.com/tools/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz"
-    dest: {{ pack_home }}
+    dest: "{{ pack_home }}"
     mode: 0644
     force: yes
     validate_certs: no
@@ -30,7 +30,7 @@
   shell: cd {{ pack_home }} &&  mv mysql-5.7.31-linux-glibc2.12-x86_64 mysql 
 
 - name: Create data dir
-  file: path={{ pack_home}}/data/mysql state=directory mode=755
+  file: path={{ pack_home }}/data/mysql state=directory mode=755
 
 - name: Create logs dir
   file: path={{ logdir }} state=directory mode=755 owner={{ user }} group={{ user }}
