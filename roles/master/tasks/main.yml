@@ -1,14 +1,11 @@
 ---
 
-- name: download package
-  include: download_package.yml
+- name: Base Settings
+  include: copy_file.yml
 
-#- name: Base Settings
-#  include: copy_file.yml
-#
-#- name: Install MySQL 
-#  include: install_MySQL.yml 
-#
-#- name: 主库受权
-#  include: rep_MySQL.yml
+- name: Install MySQL 
+  include: install_MySQL.yml 
+
+- name: 主库受权
+  include: rep_MySQL.yml
 
