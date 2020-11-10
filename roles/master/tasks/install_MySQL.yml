@@ -13,7 +13,7 @@
   template: src=./templates/mysqld.j2 dest=/etc/init.d/mysqld mode=755
 
 - name: Change owner
-  shell: cd /home/work/mysql && mkdir run && cd /home/work && chown -R work.work data && chown -R work.work mysql
+  shell: cd {{ basedir }} && mkdir run && cd {{ pack_home }} && chown -R work.work data && chown -R work.work mysql
 
 - name: Start MySQL
   shell: /etc/init.d/mysqld start

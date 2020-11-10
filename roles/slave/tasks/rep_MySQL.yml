@@ -1,12 +1,12 @@
 ---
 
-- name: Get Master IP
+- name: Get Master ID
   set_fact:
-    master: "{{ groups.master[0] }}"
+    masterid: "{{ groups.master[0] }}"
 
 - name: SET 2
   set_fact:
-    info_temp: "{{ hostvars[master]['master_status'] }}"
+    info_temp: "{{ hostvars[masterid]['master_status'] }}"
 
 - name: show
   debug: var=info_temp['Position']
@@ -19,7 +19,7 @@
     login_user: root
     login_password: "{{ root_password }}"
     login_unix_socket: "{{ mysql_socket }}"
-    master_host: "{{ master_host_ip }}"
+    master_host: "{{ hostvars[masterid].ansible_default_ipv4.address }}"
     master_user: "{{ rep_user }}"
     master_password: "{{ rep_password }}"
     master_log_file: "{{ info_temp['File'] }}"

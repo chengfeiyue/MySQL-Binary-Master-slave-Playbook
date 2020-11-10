@@ -12,25 +12,24 @@
   group: name={{ user }} state=present
 
 - name: Create mysql user work
-  user: name={{ user }} password={{ user }} group={{ user }} home=/home/{{ user }}  shell=/bin/bash state=present
+  user: name={{ user }} password={{ user }} group={{ user }} home={{ pack_home }} shell=/bin/bash state=present
 
 - name: download mysql package
   get_url:
-    url: "https://nginx-qa.fit2cloud.com/tools/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz"
+    url: "{{ download_url }}"
     dest: "{{ pack_home }}"
     mode: 0644
     force: yes
     validate_certs: no
 
 - name: Unpacking package gz
-  #unarchive: src=/home/work/mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz /dest=/home/work/ copy=no
-  shell: cd {{ pack_home }} && tar xf mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz
+  shell: cd {{ pack_home }} && tar xf {{ mysql_package }}
 
 - name: Change package name
-  shell: cd {{ pack_home }} &&  mv mysql-5.7.31-linux-glibc2.12-x86_64 mysql 
+  shell: cd {{ pack_home }} &&  mv {{ mysql_package_name }} mysql 
 
 - name: Create data dir
-  file: path={{ pack_home }}/data/mysql state=directory mode=755
+  file: path={{ datadir }} state=directory mode=755
 
 - name: Create logs dir
   file: path={{ logdir }} state=directory mode=755 owner={{ user }} group={{ user }}

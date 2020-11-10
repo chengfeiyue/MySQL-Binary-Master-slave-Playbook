@@ -1,17 +1,21 @@
 ### 基础环境
 user: work
 mysql_port: 3306
-pack_home: /home/work
-basedir: /home/work/mysql
-datadir: /home/work/data/mysql
+pack_home: "/home/{{ user }}"
+basedir: "{{ pack_home }}/mysql"
+datadir: "{{ pack_home }}/data/mysql"
 logdir: "{{ basedir }}/logs"
 
+mysql_package_name: mysql-5.7.31-linux-glibc2.12-x86_64
+mysql_package: "{{ mysql_package_name }}.tar.gz"
+download_url: "https://nginx-qa.fit2cloud.com/tools/{{ mysql_package }}"
+
 ### MySQL root user password
-root_password: Abcd1234_gome
+root_password: Password123@mysql
 
 ### MySQL rep user password
 rep_user: rep
-rep_password: rep_2019_gome
+rep_password: Password123@rep
 
 ### MySQL Socket
 mysql_socket: "{{ basedir }}/run/mysql.sock"
