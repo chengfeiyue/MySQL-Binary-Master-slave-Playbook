@@ -27,3 +27,5 @@
 
 - name: rm MySQL Package
   shell: rm -rf {{ pack_home }}/mysql-*
+- name: source /etc/profile
+  shell: source /etc/profile
