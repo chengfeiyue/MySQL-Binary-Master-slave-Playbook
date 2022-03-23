@@ -6,7 +6,7 @@
   yum: name=python-pip state=latest
   
 - name: upgrate python-pip
-  shell: wget https://files.pythonhosted.org/packages/0b/f5/be8e741434a4bf4ce5dbc235aa28ed0666178ea8986ddc10d035023744e6/pip-20.2.4.tar.gz && tar -xvf pip-20.2.4.tar.gz && sudo python setup.py install
+  shell: python -m pip install  --upgrade pip==20.2.4
 - name: pip mysql
   shell: pip install pymysql
 
