@@ -12,7 +12,7 @@ vrrp_script chk_mysql {
         interval 2
 }
 
-vrrp_instance {{mysql_instance}} {
+vrrp_instance {{vrrp_instance}} {
     state BACKUP
     nopreempt
     interface {{eth}}
@@ -24,7 +24,7 @@ vrrp_instance {{mysql_instance}} {
         auth_pass 1111
     }
     virtual_ipaddress {
-        {{vrrp}}
+        {{virtual_ipaddress}}
     }
     track_script {
         chk_mysql
