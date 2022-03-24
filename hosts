@@ -4,7 +4,9 @@
 [slave]
 10.1.240.189
 
-[keepalived]
+[keepalived-master]
+10.1.12.18
 
-10.1.12.8
+[keepalived-backup]
+10.1.12.19
 
