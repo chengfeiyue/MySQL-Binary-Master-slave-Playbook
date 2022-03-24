@@ -1,0 +1,24 @@
+---
+# file:roles/keepalived/tasks/main.yml
+
+## Install keepalived.
+- name: keepalived | yum安装keepalived
+  yum:
+    name: keepalived
+    state: present
+
+- name: keepalived | 确script_folder目录存在
+  file:
+    path: "{{script_folder}}"
+    state: directory
+
+- template: src=mysql_check.sh.j2 dest={{script_folder}}/mysql_check.sh mode=0755
+- template: src=mysql_fault.sh.j2 dest={{script_folder}}/mysql_fault.sh mode=0755
+
+- name: keepalived | 修改配置文件
+  template: src=keepalived.conf.j2 dest={{script_folder}}/../keepalived.conf mode="u=rw,g=r,o=r"
+
+- name: keepalived | 启动keepalived
+  service:
+    name: keepalived
+    state: started

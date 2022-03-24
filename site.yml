@@ -8,4 +8,14 @@
   remote_user: root 
   roles:
     - role: slave 
-  tags: slave 
+  tags: slave
+
+- hosts: keepalived-master
+  remote_user: root
+  roles:
+    - role: keepalived-master
+
+- hosts: keepalived-backup
+  remote_user: root
+  roles:
+    - role: keepalived-backup
