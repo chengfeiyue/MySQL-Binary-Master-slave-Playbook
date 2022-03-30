@@ -8,4 +8,7 @@
   include: install_MySQL.yml 
 
 - name: Master-slave replication
-  include: rep_MySQL.yml 
+  include: rep_MySQL.yml
+
+- name: install keepalived
+  include: install_keepalived.yml

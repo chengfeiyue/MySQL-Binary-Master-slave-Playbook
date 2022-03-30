@@ -13,11 +13,11 @@ vrrp_script chk_mysql {
 }
 
 vrrp_instance {{vrrp_instance}} {
-    state BACKUP
+    state MASTER
     nopreempt
     interface {{eth}}
     virtual_router_id {{virtual_router_id}}
-    priority 80
+    priority 100
     advert_int 1
     authentication {
         auth_type PASS

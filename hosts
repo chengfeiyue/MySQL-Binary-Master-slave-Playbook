@@ -3,10 +3,3 @@
 
 [slave]
 10.1.240.189
-
-[keepalived-master]
-10.1.12.18
-
-[keepalived-backup]
-10.1.12.19
-

@@ -1,5 +1,4 @@
 ---
-# file:roles/keepalived/tasks/main.yml
 
 ## Install keepalived.
 - name: keepalived | yum安装keepalived
